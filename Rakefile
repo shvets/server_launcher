@@ -7,7 +7,7 @@ require "server_launcher/version"
 require "gemspec_deps_gen/gemspec_deps_gen"
 
 def version
-  ZipDSL::VERSION
+  ServerLauncher::VERSION
 end
 
 def project_name

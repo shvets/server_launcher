@@ -1,3 +1,3 @@
-module ZipDSL
-  VERSION = "1.0.6"
+module ServerLauncher
+  VERSION = "1.0.0"
 end
