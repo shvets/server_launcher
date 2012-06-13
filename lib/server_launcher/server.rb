@@ -1,18 +1,23 @@
 require 'meta_methods'
+require 'open3'
 
 class Server
   include MetaMethods
 
-  def initialize params
+  def initialize params={}
     define_attributes(:attr_reader, self, params, false)
   end
 
-  def execute method_name
+  def execute method_name, *args
     puts "Target: '#{method_name}'."
 
     method = self.class.instance_method(method_name)
 
-    result = method.bind(self).call()
+    if args.empty?
+      result = method.bind(self).call()
+    else
+      result = method.bind(self).call(args)
+    end
 
     if result.kind_of? String
       commands = [result]
@@ -26,6 +31,8 @@ class Server
       execute_command(command)
     end
   end
+
+  private
 
   def execute_command(command)
     output = nil
