@@ -10,8 +10,9 @@ class TomcatServer < Server
      "rm -f #{deploy_dir}/#{project_name}.war"]
   end
 
-  def start
+  def start env=nil
     ENV['JAVA_OPTS'] = '-Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
+    ENV['JAVA_OPTS'] += " #{env}" unless env.nil?
 
     "#{app_server_home}/bin/startup.sh"
   end

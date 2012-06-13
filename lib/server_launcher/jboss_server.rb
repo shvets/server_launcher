@@ -14,10 +14,11 @@ class JBossServer < Server
     "#{app_server_home}/bin/shutdown.sh -S"
   end
 
-  def start
+  def start env=nil
     #"LAUNCH_JBOSS_IN_BACKGROUND=true #{app_server_home}/bin/standalone.sh"
 
     ENV['JAVA_OPTS'] = '-server -Xms512m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m'
+    ENV['JAVA_OPTS'] += " #{env}" unless env.nil?
 
     "#{app_server_home}/bin/run.sh > #{logfile} 2>&1 &"
   end
