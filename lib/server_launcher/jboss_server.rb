@@ -1,6 +1,6 @@
-require 'server'
+require 'server_launcher/server'
 
-class JbossServer < Server
+class JBossServer < Server
   def fix
     "chmod +x #{app_server_home}/bin/*.sh"
   end
@@ -23,8 +23,12 @@ class JbossServer < Server
   end
 
   def deploy
-    ["cp #{warfile} #{deploy_dir}/#{project_name}.war",
-     "cp #{datasource_file_name} #{deploy_dir}/#{File.basename(datasource_file_name)}"]
+    result = ["cp #{warfile} #{deploy_dir}/#{project_name}.war"]
+
+    result << "cp #{datasource_file_name} #{deploy_dir}/#{File.basename(datasource_file_name)}" if
+        respond_to? :datasource_file_name
+
+    result
   end
 
 end

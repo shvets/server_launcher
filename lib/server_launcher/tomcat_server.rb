@@ -1,4 +1,4 @@
-require 'server'
+require 'server_launcher/server'
 
 class TomcatServer < Server
   def fix
