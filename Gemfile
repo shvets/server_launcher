@@ -2,6 +2,7 @@ source :rubygems
 
 group :default do
   gem "meta_methods"
+  gem "file_utils"
 end
 
 group :development do

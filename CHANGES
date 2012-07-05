@@ -1,0 +1,9 @@
+= Server launcher Changelog
+
+== Version 1.0.0
+
+* Initial release.
+
+== Version 1.0.3
+
+* Bug fix in execute method.

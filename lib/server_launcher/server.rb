@@ -1,5 +1,4 @@
 require 'meta_methods'
-require 'open3'
 
 class Server
   include MetaMethods
@@ -16,7 +15,7 @@ class Server
     if args.empty?
       result = method.bind(self).call()
     else
-      result = method.bind(self).call(args)
+      result = method.bind(self).call(args.join(" "))
     end
 
     if result.kind_of? String
@@ -28,26 +27,12 @@ class Server
     commands.each do |command|
       puts "Executing '#{command}'..."
 
-      execute_command(command)
+      output, error, status = *execute_command(command)
+
+      puts "Output:\n #{output}" if output && output.size > 0
+      puts "Error: #{error}" if error && error.size > 0
+      puts "Status: #{status}" if status && status.to_s.to_i > 0
     end
-  end
-
-  private
-
-  def execute_command(command)
-    output = nil
-    error = nil
-    status = nil
-
-    Open3.popen3(command) do |_, stdout, stderr|
-      output = stdout.readlines
-      error = stderr.readlines
-      status = $?
-    end
-
-    puts "Output:\n #{output}" if output && output.size > 0
-    puts "Error: #{error}" if error && error.size > 0
-    puts "Status: #{status}" if status && status.to_s.to_i > 0
   end
 
 end
