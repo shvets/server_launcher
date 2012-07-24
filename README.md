@@ -15,13 +15,13 @@ Or install it yourself as:
     $ gem install server_launcher
 
 ## Usage
-
-server = TomcatServer.new(:app_server_home => app_server_home, :deploy_dir => deploy_dir,
+    
+    server = TomcatServer.new(:app_server_home => app_server_home, :deploy_dir => deploy_dir,
                            :project_name => project_name, :warfile => warfile, :logfile => logfile)
 
-server.execute :start
-server.execute :stop
-server.execute :deploy
+    server.execute :start
+    server.execute :stop
+    server.execute :deploy
 
 
 ## Contributing
