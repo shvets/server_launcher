@@ -29,8 +29,8 @@ class Server
 
       output, error, status = *execute_command(command)
 
-      puts "Output:\n #{output}" if output && output.size > 0
-      puts "Error: #{error}" if error && error.size > 0
+      puts "Output:\n #{output.join(" ")}" if output && output.size > 0
+      puts "Error: #{error.join(" ")}" if error && error.size > 0
       puts "Status: #{status}" if status && status.to_s.to_i > 0
     end
   end
