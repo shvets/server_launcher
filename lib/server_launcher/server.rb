@@ -1,7 +1,9 @@
 require 'meta_methods'
+require 'file_utils'
 
 class Server
   include MetaMethods
+  include FileUtils
 
   def initialize params={}
     define_attributes(:attr_reader, self, params, false)

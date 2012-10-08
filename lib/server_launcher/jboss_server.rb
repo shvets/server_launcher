@@ -12,7 +12,7 @@ class JBossServer < Server
   def stop
     #    #puts `#{app_server_home}/bin/jboss-admin.sh --connect command=:shutdown`
     "#{app_server_home}/bin/shutdown.sh -S"
-  end
+  end 
 
   def start env=nil
     #"LAUNCH_JBOSS_IN_BACKGROUND=true #{app_server_home}/bin/standalone.sh"
