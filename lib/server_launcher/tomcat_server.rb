@@ -6,7 +6,7 @@ class TomcatServer < Server
   end
 
   def clean
-    ["rm -rf #{deploy_dir}/#{project_name}*",
+    ["rm -rf #{deploy_dir}/#{project_name}",
      "rm -f #{deploy_dir}/#{project_name}.war"]
   end
 

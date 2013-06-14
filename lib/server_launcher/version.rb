@@ -1,3 +1,3 @@
-module ServerLauncher
-  VERSION = "1.0.4"
+class ServerLauncher
+  VERSION = "1.0.5"
 end
