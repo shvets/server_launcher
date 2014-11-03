@@ -9,13 +9,30 @@
   },
 
   "project": {
-    "project_name": "project_name"
+    "project_name": "project_name",
+    "warfile": "build/test.war"
   },
 
   "tomcat": {
-    "app_server_home": "~/tomcat",
-    "deploy_dir": "deploy_dir",
-    "warfile": "warfile"
+    "home": "/usr/local/Cellar/tomcat7/7.0.56/libexec",
+    "deploy_dir": "#{tomcat.home}/webapps"
+  },
+
+  "jboss": {
+    "home": "/usr/local/Cellar/jboss-as5/5.1.0GA/libexec",
+    "deploy_dir": "#{jboss.home}/server/default/deploy",
+    "logfile": "logfile",
+    "datasource_file_name": "datasource_file_name.xml"
+  },
+
+  "winstone": {
+    "home": "/usr/local/Cellar/tomcat7/7.0.56/libexec",
+    "deploy_dir": "#{tomcat.home}/webapps",
+    "port": "1234",
+    "control_port": "2222",
+    "logfile": "logfile",
+    "webroot": "webroot",
+    "host_name": "host_name"
   }
 
 }
