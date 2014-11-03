@@ -1,0 +1,21 @@
+{
+
+  "node": {
+    "domain": "127.0.0.1",
+    "user": "ENV['USER']",
+    "home": "ENV['HOME']",
+    "port": "",
+    "remote": false
+  },
+
+  "project": {
+    "project_name": "project_name"
+  },
+
+  "tomcat": {
+    "app_server_home": "~/tomcat",
+    "deploy_dir": "deploy_dir",
+    "warfile": "warfile"
+  }
+
+}

@@ -19,23 +19,23 @@ describe JBossServer do
   end
 
   it "should build fix command" do
-    @server.fix.should =~ /chmod \+x/
+    expect(@server.fix).to match /chmod \+x/
   end
 
   it "should build clean command" do
-    @server.clean.should =~ /rm -rf /
+    expect(@server.clean).to match /rm -rf /
   end
 
   it "should build stop command" do
-    @server.stop.should =~ /shutdown.sh -S/
+    expect(@server.stop).to match /shutdown.sh -S/
   end
 
   it "should build start command" do
-    @server.start.should =~ /bin\/run.sh/
+    expect(@server.start).to match /bin\/run.sh/
   end
 
   it "should build deploy command" do
-    @server.deploy.first.should =~ /cp\s/
+    expect(@server.deploy.first).to match /cp\s/
   end
 end
 

@@ -19,23 +19,23 @@ describe TomcatServer do
   end
 
   it "should build fix command" do
-    @server.fix.should =~ /chmod \+x/
+    expect(@server.fix).to match /chmod \+x/
   end
 
   it "should build clean command" do
-    @server.clean.first.should =~ /rm -rf /
+    expect(@server.clean.first).to match /rm -rf /
   end
 
   it "should build stop command" do
-    @server.stop.should =~ /shutdown.sh/
+    expect(@server.stop).to match /shutdown.sh/
   end
 
   it "should build start command" do
-    @server.start.should =~ /bin\/startup.sh/
+    expect(@server.start).to match /bin\/startup.sh/
   end
 
   it "should build deploy command" do
-    @server.deploy.should =~ /cp\s/
+    expect( @server.deploy).to match /cp\s/
   end
 end
 

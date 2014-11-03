@@ -18,11 +18,11 @@ end
 describe MyServer do
 
   it "should execute command without parameter" do
-    subject.execute(:stop).should == ["ls"]
+    expect(subject.execute(:stop)).to eq ["ls"]
   end
 
   it "should execute command with parameter" do
-    subject.execute(:start, "ls").should == ["ls"]
+    expect(subject.execute(:start, "ls")).to eq ["ls"]
   end
 
 end

@@ -21,18 +21,18 @@ describe WinstoneServer do
   end
 
   it "should build stop command" do
-    @server.stop.should =~ /winstone tool winstone.tools.WinstoneControl shutdown/
+    expect(@server.stop).to match /winstone tool winstone.tools.WinstoneControl shutdown/
   end
 
   it "should build start command" do
-    @server.start.should =~ /--warfile=build\/test.war/
+    expect(@server.start).to match /--warfile=build\/test.war/
   end
 
   it "should build start_exploded command" do
-    @server.start_exploded.should =~ /--webroot=build\/exploded/
+    expect(@server.start_exploded).to match /--webroot=build\/exploded/
   end
 
   it "should build reload command" do
-    @server.reload.should =~ /reload: --host=localhost/
+    expect(@server.reload).to match /reload: --host=localhost/
   end
 end

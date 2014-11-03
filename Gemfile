@@ -3,6 +3,9 @@ source "https://rubygems.org"
 group :default do
   gem "meta_methods"
   gem "file_utils"
+  gem "text-interpolator", "~>1.1"
+  gem "script_executor", "~>1.5"
+  gem "thor", "~>0.19"
 end
 
 group :development do
@@ -11,6 +14,5 @@ group :development do
 end
 
 group :test do
-  gem "rspec", "2.9.0"
-  gem "mocha", "0.10.3"
+  gem "rspec"
 end
